@@ -255,7 +255,7 @@ bool is_winner(Field player, Matrix m)
 		}
 	}
 
-	for (int i = m.get_height(); i > m.get_height()/2; i--)
+	for (int i = m.get_height() -1; i > m.get_height()/2; i--)
 	{
 		for (int j = 0; j < m.get_width()/2; j++)
 		{
@@ -267,7 +267,7 @@ bool is_winner(Field player, Matrix m)
 		}
 	}
 
-	for (int i = m.get_height(); i > m.get_height()/2; i--)
+	for (int i = m.get_height()-1; i > m.get_height()/2; i--)
 	{
 		for (int j = m.get_width(); j > m.get_width()/2; j--)
 		{
@@ -281,7 +281,7 @@ bool is_winner(Field player, Matrix m)
 
 	for (int i = 0; i < m.get_height()/2; i++)
 	{
-		for (int j = m.get_width(); j > m.get_width()/2; j--)
+		for (int j = m.get_width() -1; j > m.get_width()/2; j--)
 		{
 
 			if (m.get(i, j) == player && m.get(i+1, j-1) == player && m.get(i+2,j-2) == player && m.get(i+3,j-3) == player && m.get(i+4,j-4) == player)
