@@ -220,8 +220,7 @@ bool is_valid(int x, int y, Matrix m)
 
 bool is_winner(Field player, Matrix m)
 {
-
-	cout << "Riadky\n";
+	
 	for (int i = 0; i < m.get_height()/2 + 1; i++)
 	{
 		for (int j = 0; j < m.get_width(); j++)
@@ -232,8 +231,7 @@ bool is_winner(Field player, Matrix m)
 			}
 		}
 	}
-
-	cout << "Stlpce\n";
+	
 	for (int i = 0; i < m.get_height(); i++)
 	{
 		for (int j = 0; j < m.get_width()/2 + 1; j++)
@@ -244,8 +242,7 @@ bool is_winner(Field player, Matrix m)
 			}
 		}
 	}
-
-	cout << "diagonala l->p\n";
+	
 	for (int i = 0; i < m.get_height()/2; i++)
 	{
 		for (int j = 0; j < m.get_width()/2; j++)
@@ -257,8 +254,7 @@ bool is_winner(Field player, Matrix m)
 			}
 		}
 	}
-
-	cout << "diagonala p->l\n";
+	
 	for (int i = m.get_height() -1; i > m.get_height()/2 -1; i--)
 	{
 		for (int j = 0; j < m.get_width()/2; j++)
@@ -270,20 +266,19 @@ bool is_winner(Field player, Matrix m)
 		}
 	}
 
-	cout<< "Spodna diagonala 1\n";
+	
 	for (int i = m.get_height()-1; i > m.get_height()/2 -2; i--)
+	{
+		for (int j = m.get_width()-1; j > m.get_width()/2 -1; j--)
+		{
+
+			if (m.get(i, j) == player && m.get(i-1, j-1) == player && m.get(i-2,j-2) == player && m.get(i-3,j-3) == player && m.get(i-4,j-4) == player)
 			{
-				for (int j = m.get_width()-1; j > m.get_width()/2 -1; j--)
-				{
-
-					if (m.get(i, j) == player && m.get(i-1, j-1) == player && m.get(i-2,j-2) == player && m.get(i-3,j-3) == player && m.get(i-4,j-4) == player)
-					{
-						return true;
-					}
-				}
+				return true;
 			}
-
-	cout<< "Spodna diagonala 2\n";
+		}
+	}
+	
 	for (int i = 0; i < m.get_height()/2; i++)
 	{
 		for (int j = m.get_width() -1; j > m.get_width()/2 -2; j--)
